@@ -5,8 +5,7 @@ from models.staff import Doctor
 
 class LabResult:
     """
-    Représente le résultat d'une analyse biologique.
-    Vérifie automatiquement si la valeur est dans les normes.
+    Represents the result of a laboratory analysis, including value, unit,
     """
 
     STATUS_NORMAL:   str = "🟢 NORMAL"
@@ -15,7 +14,7 @@ class LabResult:
 
     def __init__(self, parameter: str, value: float, unit: str,
                  min_norm: float, max_norm: float) -> None:
-        """Initialise un résultat avec sa valeur et ses normes."""
+        """Initialize a lab result with parameter, value, unit, and norms."""
         self.parameter: str   = parameter
         self.value:     float = value
         self.unit:      str   = unit
@@ -45,11 +44,10 @@ class LabResult:
 
 class Analysis:
     """
-    Représente une analyse biologique prescrite par un médecin pour un patient.
-    Contient un LabResult une fois le résultat saisi.
+    Represents a single laboratory analysis prescribed for a patient.
     """
 
-    # Normes biologiques : {paramètre: (min, max, unité)}
+    #Biological Standards : {parameter: (min, max, unit)}
     NORMS: dict[str, tuple[float, float, str]] = {
         "glycemia":      (0.70, 1.10, "g/L"),
         "hemoglobin":    (12.0, 17.0, "g/dL"),
@@ -61,7 +59,7 @@ class Analysis:
     }
 
     def __init__(self, patient: Patient, parameter: str, prescribed_by: Doctor) -> None:
-        """Initialise une analyse pour un patient, prescrite par un médecin."""
+        """Initialize an analysis with patient, parameter, and prescribing doctor."""
         if parameter not in self.NORMS:
             raise ValueError(
                 f"Unknown parameter '{parameter}'. "
@@ -85,15 +83,15 @@ class Analysis:
         mini, maxi, unit = self.NORMS[self.parameter]
         self.result = LabResult(self.parameter, value, unit, mini, maxi)
 
-        # Met à jour le dossier du patient
+    
         self.patient.add_medical_history(
             f"Lab result — {self.parameter}: {value} {unit} "
             f"({self.result.get_status()})"
         )
 
-        # Alerte critique automatique
+    
         if self.result.is_critical():
-            print(f"\n  ⚠ CRITICAL ALERT — {self.parameter} = {value} {unit}")
+            print(f"\n    CRITICAL ALERT — {self.parameter} = {value} {unit}")
             print(f"    Patient  : {self.patient.name}")
             print(f"    Notify   : Dr {self.prescribed_by.name} immediately !")
 
@@ -110,10 +108,9 @@ class Analysis:
 
 class Laboratory:
     """
-    Gère l'ensemble des analyses du laboratoire hospitalier.
-    Prescrit, enregistre les résultats et remonte les alertes critiques.
+    Manages all analyses, from prescription to result entry.
+    Provides methods to check for pending and critical analyses.
     """
-
     def __init__(self, name: str) -> None:
         """Initialise le laboratoire avec son nom."""
         self.name:      str            = name
@@ -125,7 +122,7 @@ class Laboratory:
         """Prescribe a new analysis for a patient."""
         analysis = Analysis(patient, parameter, doctor)
         self.analyses.append(analysis)
-        print(f"  ✓ Analysis prescribed: {parameter} "
+        print(f"    Analysis prescribed: {parameter} "
               f"for {patient.name} "
               f"by Dr {doctor.name}")
         return analysis
@@ -133,7 +130,7 @@ class Laboratory:
     def enter_result(self, analysis: Analysis, value: float) -> None:
         """Enter the result for a given analysis."""
         if analysis not in self.analyses:
-            print("  ✗ Analysis not found in this laboratory.")
+            print("    Analysis not found in this laboratory.")
             return
         analysis.enter_result(value)
         self.nb_processed += 1
@@ -162,11 +159,11 @@ class Laboratory:
             print("  🟢 No critical results.")
 
         if pending:
-            print(f"  ⏳ {len(pending)} pending analysis(es):")
+            print(f"    {len(pending)} pending analysis(es):")
             for a in pending:
                 print(f"    • {a}")
         else:
-            print("  ✓ No pending analyses.")
+            print("    No pending analyses.")
 
     def display_all(self) -> None:
         """Display all analyses with their results."""
