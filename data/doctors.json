@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Diallo Moussa",
+        "role": "Doctor",
+        "specialty": "General"
+    },
+    {
+        "name": "Kabore Sophie",
+        "role": "Nurse",
+        "specialty": ""
+    },
+    {
+        "name": "Zongo Fatima",
+        "role": "Doctor",
+        "specialty": "General"
+    },
+    {
+        "name": "Nikiema Luc",
+        "role": "Doctor",
+        "specialty": "General"
+    }
+]
