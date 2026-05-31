@@ -10,7 +10,6 @@ from utils.cli import (
     choose_patient, choose_doctor
 )
 
-
 def menu_patients(patients: list[Patient],
                   emergency_room: EmergencyRoom) -> None:
     """Submenu for patient management."""
@@ -65,8 +64,7 @@ def menu_staff(staff: list, patients: list[Patient]) -> None:
         print("  2. Add a doctor")          
         print("  3. Add a nurse") 
         print("  4. Doctor heals a patient")
-        print("  5. Doctor prescribes medication")
-        print("  6. Nurse monitors a patient")
+        print("  5. Nurse monitors a patient")
         print("  0. Back")
         choice = input("\n  Choice: ").strip()
 
@@ -113,14 +111,6 @@ def menu_staff(staff: list, patients: list[Patient]) -> None:
                 doctor.heal(patient, diagnosis)
 
         elif choice == "5":
-            doctor  = choose_doctor(staff)
-            patient = choose_patient(patients)
-            if doctor and patient:
-                med  = input("  Medication: ")
-                dose = input("  Dosage    : ")
-                print(doctor.prescribe_medication(patient.name, med))
-
-        elif choice == "6":
             nurses = [s for s in staff if isinstance(s, Nurse)]
             if not nurses:
                 print("  No nurses available.")
