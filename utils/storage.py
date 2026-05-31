@@ -5,7 +5,7 @@ from datetime import date
 from models.patient import Patient
 from models.staff import Doctor, Nurse
 
-from services.billing import Invoice, save_bills, load_bills
+from modules.billing import Invoice, save_bills, load_bills
 
 DATA_PATIENTS: str = "data/patients.json"
 DATA_STAFF:    str = "data/doctors.json"
