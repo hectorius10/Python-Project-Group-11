@@ -1,1 +1,20 @@
-
+[
+    {
+        "number": "INV-20260530-OUÉ",
+        "date": "2026-05-30",
+        "patient": "Ouédraogo Mariam",
+        "doctor": "Zongo Fatima",
+        "acts": [
+            {
+                "description": "Consultation",
+                "quantity": 2,
+                "unit_price": 5000.0,
+                "subtotal": 10000.0
+            }
+        ],
+        "total": 10000.0,
+        "paid": 10000.0,
+        "balance": 0.0,
+        "status": "Paid"
+    }
+]

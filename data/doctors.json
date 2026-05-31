@@ -2,21 +2,25 @@
     {
         "name": "Diallo Moussa",
         "role": "Doctor",
-        "specialty": "General"
+        "specialty": "General",
+        "department": ""
     },
     {
         "name": "Kabore Sophie",
         "role": "Nurse",
-        "specialty": ""
+        "specialty": "",
+        "department": "General"
     },
     {
         "name": "Zongo Fatima",
         "role": "Doctor",
-        "specialty": "General"
+        "specialty": "General",
+        "department": ""
     },
     {
         "name": "Nikiema Luc",
         "role": "Doctor",
-        "specialty": "General"
+        "specialty": "General",
+        "department": ""
     }
 ]
