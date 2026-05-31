@@ -1,9 +1,9 @@
 from models.patient import Patient
 from models.staff import Doctor, Nurse
-from services.emergency import EmergencyRoom
-from services.laboratory import Laboratory
-from services.billing import Invoice
-from services.pharmacy import Pharmacy
+from modules.emergency import EmergencyRoom
+from modules.laboratory import Laboratory
+from modules.billing import Invoice
+from modules.pharmacy import Pharmacy
 
 from utils.cli import (
     display_separator, get_int_input, get_float_input,

@@ -1,9 +1,9 @@
 # ─── Imports modules of project ────────────────────────────────
 from models.patient import Patient
 from models.staff import Doctor, Nurse
-from services.emergency  import EmergencyRoom
-from services.laboratory import Laboratory
-from services.pharmacy   import Medication, Pharmacy
+from modules.emergency  import EmergencyRoom
+from modules.laboratory import Laboratory
+from modules.pharmacy   import Medication, Pharmacy
 
 from utils.cli import display_banner
 from utils.storage import load_patients, load_staff, load_bills, save_patients, save_staff, save_bills
