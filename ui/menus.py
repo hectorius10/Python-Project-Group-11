@@ -71,7 +71,7 @@ def menu_staff(staff: list, patients: list[Patient]) -> None:
         choice = input("\n  Choice: ").strip()
 
         if choice == "1":
-            # ✅ Bug fix: affiche TOUT le staff, pas seulement les doctors
+        
             if not staff:
                 print("  No staff registered.")
                 continue
@@ -154,7 +154,6 @@ def menu_emergency(emergency_room: EmergencyRoom,
             emergency_room.treat_next()
         elif choice == "0":
             break
-
 
 def menu_laboratory(lab: Laboratory, patients: list[Patient],
                     staff: list) -> None:
