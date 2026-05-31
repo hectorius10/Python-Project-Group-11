@@ -83,8 +83,8 @@ class Prescription:
         """
         Export the prescription details to a formatted text file in the 'data/ordonnances' directory.
         """
-        os.makedirs("data/ordonnances", exist_ok=True)
-        file_path = f"data/ordonnances/{self.number}.txt"
+        os.makedirs("data/presciptions", exist_ok=True)
+        file_path = f"data/prescriptions/{self.number}.txt"
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(f"PRESCRIPTION N° {self.number}\n")
             f.write(f"Date    : {self.date}\n")
