@@ -33,10 +33,6 @@ class Doctor(MedicalPersonnel):
         patient.current_diagnosis = diagnosis
         print(f"    Dr {self.name} diagnosed {patient.name}: {diagnosis}")
 
-    def prescribe_medication(self, patient_name: str, medication: str) -> str:
-        """Prescribe medication to a patient."""
-        return f"    Rx — Dr {self.name} prescribes {medication} to {patient_name}"
-
     def treat(self, patient) -> str:
         """Doctor's treatment: records a clinical note in the patient's history."""
         note = f"Clinical assessment by Dr {self.name} ({self.specialty})"
